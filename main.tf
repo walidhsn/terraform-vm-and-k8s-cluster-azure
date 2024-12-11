@@ -30,7 +30,7 @@ resource "azurerm_key_vault" "kv" {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
 
-    secret_permissions = ["Get", "List", "Set", "Delete"]
+    secret_permissions = ["Get", "List", "Set", "Delete","Purge"]
   }
 }
 resource "azurerm_key_vault_secret" "private_key" {
@@ -93,6 +93,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+
 }
 
 # Create network interface
